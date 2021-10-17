@@ -3,10 +3,12 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import { Redirect } from 'react-router-dom';
 import Axios from 'axios';
 import FormData from 'form-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -16,8 +18,8 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+/** Renders the Page for adding additional user information. */
+class AddInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,12 +41,16 @@ class AddStuff extends React.Component {
           formRef.reset();
         }
       });
+    this.setState({ redirectToReferer: true });
   }
 
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  // Render the form. Use Uniform: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
-
+    const { from } = this.props.location.state || { from: { pathname: '/add-info' } };
+    if (this.state.redirectToReferer) {
+      return <Redirect to={from}/>;
+    }
     const formStyle = {
       width: '500px',
       marginLeft: '310px',
@@ -84,5 +90,8 @@ class AddStuff extends React.Component {
     );
   }
 }
+AddInfo.propTypes = {
+  location: PropTypes.object,
+};
 
-export default AddStuff;
+export default AddInfo;
