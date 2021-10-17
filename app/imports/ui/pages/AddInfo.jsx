@@ -44,6 +44,12 @@ class AddStuff extends React.Component {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
+
+    const formStyle = {
+      width: '500px',
+      marginLeft: '310px',
+    };
+
     const uploadImg = (files) => {
       const data = new FormData();
       data.append('file', files[0]);
@@ -57,11 +63,11 @@ class AddStuff extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Add Stuff</Header>
+          <Header as="h2" textAlign="center">Add Profile Information</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
-            <Segment>
+            <Segment style={formStyle}>
               <TextField name='displayName'/>
-              <p style={{ marginBottom: '-5px', marginTop: '5px', fontSize: '13px' }}><strong>Upload profile picture</strong></p>
+              <p style={{ marginBottom: '-5px', marginTop: '5px', fontSize: '13px' }}><strong>Upload profile picture</strong><strong style={{ color: 'red' }}> *</strong></p>
               <input
                 style={{ marginTop: '10px' }}
                 type='file' onChange={(event) => {
