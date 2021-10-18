@@ -14,10 +14,8 @@ class AnimeCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       title: String,
-      img_url: String,
+      image_url: String,
       synopsis: String,
-      episodes: Number,
-      rating: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
