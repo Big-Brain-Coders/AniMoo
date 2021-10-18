@@ -50,6 +50,8 @@ class ListAnime extends React.Component {
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Image</Table.HeaderCell>
               <Table.HeaderCell>Summary</Table.HeaderCell>
+              <Table.HeaderCell>Episodes</Table.HeaderCell>
+              <Table.HeaderCell>Rating</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

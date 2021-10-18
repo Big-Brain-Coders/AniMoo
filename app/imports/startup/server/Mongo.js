@@ -24,6 +24,8 @@ function addAnime(data) {
     title: data.title,
     image_url: data.image_url,
     synopsis: data.synopsis,
+    episodes: data.episodes,
+    rating: data.score,
   });
 }
 

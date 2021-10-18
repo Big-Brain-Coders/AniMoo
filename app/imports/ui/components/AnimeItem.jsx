@@ -8,9 +8,11 @@ class AnimeItem extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell><Header as='h5'>{this.props.anime.title}</Header></Table.Cell>
+        <Table.Cell textAlign='center'><Header as='h5'>{this.props.anime.title}</Header></Table.Cell>
         <Table.Cell><Image src={this.props.anime.image_url} size='small'/></Table.Cell>
         <Table.Cell>{this.props.anime.synopsis}</Table.Cell>
+        <Table.Cell textAlign='center'>{this.props.anime.episodes}</Table.Cell>
+        <Table.Cell textAlign='center'>{this.props.anime.rating}</Table.Cell>
       </Table.Row>
     );
   }
@@ -22,6 +24,8 @@ AnimeItem.propTypes = {
     title: PropTypes.string,
     image_url: PropTypes.string,
     synopsis: PropTypes.string,
+    episodes: PropTypes.number,
+    rating: PropTypes.number,
     _id: PropTypes.string,
   }).isRequired,
 };
