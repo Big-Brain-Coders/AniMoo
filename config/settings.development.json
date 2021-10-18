@@ -4,6 +4,11 @@
     { "email": "john@foo.com", "username": "johnfoo", "password": "changeme" }
   ],
 
+  "defaultUsers": [
+    { "email": "admin@foo.com", "firstName": "Admin", "lastName": "Admin", "likedShows": [], "friends": [] },
+    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "likedShows": [], "friends": [] }
+  ],
+
   "defaultData": [
     { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
