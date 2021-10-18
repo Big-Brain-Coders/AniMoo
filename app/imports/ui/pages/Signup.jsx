@@ -23,7 +23,7 @@ class Signup extends React.Component {
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
     const { email, password, firstName, lastName, username } = this.state;
-    Accounts.createUser({ email, username, password, firstName, lastName, }, (err) => {
+    Accounts.createUser({ email, username, password, firstName, lastName }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -53,18 +53,18 @@ class Signup extends React.Component {
                   <Form.Input
                     fluid
                     label="First Name"
-                    id="signup-form-firstname"
-                    name="firstname"
-                    type="firstname"
+                    id="signup-form-firstName"
+                    name="firstName"
+                    type="firstName"
                     placeholder="Please enter your first name."
                     onChange={this.handleChange}
                   />
                   <Form.Input
                     fluid
                     label="Last Name"
-                    id="signup-form-lastname"
-                    name="lastname"
-                    type="lastname"
+                    id="signup-form-lastName"
+                    name="lastName"
+                    type="lastName"
                     placeholder="Please enter your last name."
                     onChange={this.handleChange}
                   />

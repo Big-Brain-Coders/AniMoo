@@ -8,10 +8,12 @@ function createUser(email, username, password, firstName, lastName, role) {
   console.log(`  Creating user ${email}.`);
   const userID = Accounts.createUser({
     username: username,
-    firstName: firstName,
-    lastName: lastName,
     email: email,
     password: password,
+    profile: {
+      firstName: firstName,
+      lastName: lastName,
+    }
   });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });
