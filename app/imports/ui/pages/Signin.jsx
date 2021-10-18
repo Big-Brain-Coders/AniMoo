@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { User } from 'meteor/socialize:user-model';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
@@ -9,6 +10,9 @@ import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-rea
  * Authentication errors modify the component’s state to be displayed
  */
 export default class Signin extends React.Component {
+  static propTypes = {
+    user: PropTypes.instanceOf(User),
+  }
 
   // Initialize component state with properties for login and redirection.
   constructor(props) {
@@ -23,8 +27,8 @@ export default class Signin extends React.Component {
 
   // Handle Signin submission using Meteor's account mechanism.
   submit = () => {
-    const { email, password } = this.state;
-    Meteor.loginWithPassword(email, password, (err) => {
+    const { usernameOrEmail, password } = this.state;
+    Meteor.loginWithPassword(usernameOrEmail, password, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -51,13 +55,13 @@ export default class Signin extends React.Component {
             <Form onSubmit={this.submit}>
               <Segment stacked>
                 <Form.Input
-                  label="Email"
+                  label="Email/Username"
                   id="signin-form-email"
                   icon="user"
                   iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
+                  name="usernameOrEmail"
+                  type="string"
+                  placeholder="E-mail addres/Username"
                   onChange={this.handleChange}
                 />
                 <Form.Input

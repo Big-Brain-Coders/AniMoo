@@ -16,8 +16,8 @@ class AnimeCollection {
       title: String,
       img_url: String,
       synopsis: String,
-      episodes: Number,
-      rating: String,
+      episodes: { type: Number, optional: true },
+      rating: { type: String, optional: true },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

@@ -42,3 +42,5 @@ montiapm:agent                   # see http://montiapm.com
 zodern:hide-production-sourcemaps
 socialize:user-model
 socialize:friendships
+socialize:user-profile
+ccorcos:subs-cache
