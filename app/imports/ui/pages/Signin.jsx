@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -35,6 +35,11 @@ export default class Signin extends React.Component {
 
   // Render the signin form.
   render() {
+    const lightblue = {
+      backgroundColor: '#6eb3be',
+      borderRadius: '25px',
+      padding: '31px',
+    };
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
@@ -42,40 +47,54 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-      <Container id="signin-page">
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment stacked>
-                <Form.Input
-                  label="Email"
-                  id="signin-form-email"
-                  icon="user"
-                  iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Password"
-                  id="signin-form-password"
-                  icon="lock"
-                  iconPosition="left"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Button id="signin-form-submit" content="Submit"/>
-              </Segment>
-            </Form>
-            <Message>
-              <Link to="/signup">Click here to Register</Link>
-            </Message>
+      <div className="login-background">
+        <Container id="signin-page" centered>
+          <Grid textAlign="center" verticalAlign="middle" centered columns={2} >
+            <div className="login">
+              <Form onSubmit={this.submit}>
+                <Segment style={lightblue}>
+                  <Header inverted as='h2' textAlign='center'>Welcome to AniMoo</Header>
+                  <Grid>
+                    <Grid.Column width={10}>
+                      <Image src="/images/anisquad.png" size='medium' circular centered/>
+                    </Grid.Column>
+                    <Grid.Column width={20}>
+                      <Form.Input
+                        label="Email"
+                        id="login-form-email"
+                        icon="user"
+                        iconPosition="left"
+                        name="email"
+                        type="email"
+                        placeholder="E-mail address"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        label="Password"
+                        id="login-form-password"
+                        icon="lock"
+                        iconPosition="left"
+                        name="password"
+                        placeholder="Password"
+                        type="password"
+                        onChange={this.handleChange}
+                      />
+                      <Grid>
+                        <Grid.Column width={5}>
+                          <Form.Button id="login-form-submit" content="Login" size="medium"/>
+                        </Grid.Column>
+                        <Grid.Column width={11}>
+                          <p className="login-register" style={{ paddingTop: '8px' }}>Need an account? Register <Link id='signup' to='/signup'>here </Link></p>
+                        </Grid.Column>
+                      </Grid>
+                    </Grid.Column>
+                  </Grid>
+                </Segment>
+              </Form>
+              <Message>
+                <Link to="/signup">Click here to Register</Link>
+              </Message>
+            </div>
             {this.state.error === '' ? (
               ''
             ) : (
@@ -85,9 +104,9 @@ export default class Signin extends React.Component {
                 content={this.state.error}
               />
             )}
-          </Grid.Column>
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }
