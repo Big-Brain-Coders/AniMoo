@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Table, Header, Loader, Pagination } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Anime } from '../../api/anime/Anime';
@@ -31,6 +31,7 @@ class ListAnime extends React.Component {
             {this.props.anime.map((show) => <AnimeItem key={show._id} anime={show} />)}
           </Table.Body>
         </Table>
+        <Pagination defaultActivePage={5} totalPages={10} />
       </Container>
     );
   }
