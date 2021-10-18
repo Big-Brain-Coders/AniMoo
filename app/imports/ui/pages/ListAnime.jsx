@@ -49,7 +49,7 @@ class ListAnime extends React.Component {
             <Table.Row>
               <Table.HeaderCell>Title</Table.HeaderCell>
               <Table.HeaderCell>Image</Table.HeaderCell>
-              <Table.HeaderCell>Synopsis</Table.HeaderCell>
+              <Table.HeaderCell>Summary</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
