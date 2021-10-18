@@ -2,18 +2,17 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Anime } from '../../api/anime/Anime';
-
+import { Users } from '../../api/user/User';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 
 Meteor.publish('User', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return User.find({ email: username });
+    return Users.find({ email: username });
   }
   return this.ready();
 });
-
 
 Meteor.publish(Stuffs.userPublicationName, function () {
   if (this.userId) {
