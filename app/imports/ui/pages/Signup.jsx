@@ -11,7 +11,7 @@ class Signup extends React.Component {
   /* Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', username: '', firstName: '', 
+    this.state = { email: '', password: '', username: '', firstName: '',
       lastName: '', error: '', redirectToReferer: false };
   }
 
@@ -23,7 +23,7 @@ class Signup extends React.Component {
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
     const { email, password, firstName, lastName, username } = this.state;
-    Accounts.createUser({ email, username, password, firstName, lastName }, (err) => {
+    Accounts.createUser({ email, username, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
