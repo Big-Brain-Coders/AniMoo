@@ -22,7 +22,7 @@ function addAnime(data) {
   console.log(`  Adding: ${data.title}`);
   Anime.collection.insert({
     title: data.title,
-    img_url: data.image_url,
+    image_url: data.image_url,
     synopsis: data.synopsis,
     episodes: data.episodes,
     rating: data.score,
