@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
+import { publishComposite } from 'meteor/reywood:publish-composite';
+import { User } from 'meteor/socialize:user-model';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 // User-level publication.
@@ -29,3 +31,25 @@ Meteor.publish(null, function () {
   }
   return this.ready();
 });
+
+
+publishComposite('onlineFriends', {
+  find() {
+    return User.createEmpty(this.userId).friends();
+  },
+  children: [
+    {
+      find(friend) {
+        return Meteor.users.find({ _id: friend.friendId, status: { $exists: true } }, { fields: User.fieldsToPublish });
+      },
+    },
+  ],
+});
+
+Meteor.publish(null, function publishNewUsers() {
+  return Meteor.users.find({ _id: { $ne: this.userId } }, { limit: 18, sort: { createdAt: -1 }, fields: { ...User.fieldsToPublish, createdAt: 1 } });
+});
+
+Meteor.publish(null, function appData() {
+  return Meteor.users.find({ _id: this.userId }, { fields: { ...User.fieldsToPublish, friendCount: 1 } });
+}, { is_auto: true });
