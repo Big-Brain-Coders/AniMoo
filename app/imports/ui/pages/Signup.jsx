@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
-
+import swal from 'sweetalert';
+import { Users } from '../../api/user/User';
 /**
  * Signup component is similar to signin component, but we create a new user instead.
  */
@@ -28,7 +29,18 @@ class Signup extends React.Component {
         this.setState({ error: err.reason });
       } else {
         this.setState({ error: '', redirectToReferer: true });
-
+        Users.collection.insert({
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+        },
+        (error) => {
+          if (error) {
+            swal('Error', error.message, 'error');
+          } else {
+            this.setState({ error: '', redirectToReferer: true });
+          }
+        });
       }
     });
   }
