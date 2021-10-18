@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import { Redirect } from 'react-router-dom';
@@ -9,11 +9,12 @@ import FormData from 'form-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import PropTypes from 'prop-types';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Profiles } from '../../api/Profile/Profile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   displayName: String,
+  bio: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -29,10 +30,10 @@ class AddInfo extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { displayName } = data;
+    const { displayName, bio } = data;
     const owner = Meteor.user().username;
     const image = this.state.imageURL;
-    Stuffs.collection.insert({ displayName, image, owner },
+    Profiles.collection.insert({ displayName, image, bio, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -47,7 +48,7 @@ class AddInfo extends React.Component {
   // Render the form. Use Uniform: https://github.com/vazco/uniforms
   render() {
     let fRef = null;
-    const { from } = this.props.location.state || { from: { pathname: '/add-info' } };
+    const { from } = this.props.location.state || { from: { pathname: '/list' } };
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
@@ -80,6 +81,7 @@ class AddInfo extends React.Component {
                   uploadImg(event.target.files);
                 }}
               />
+              <LongTextField name='bio'/>
               <SubmitField
                 style={{ marginTop: '10px' }} value='Submit'/>
               <ErrorsField/>
