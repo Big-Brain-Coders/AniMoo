@@ -1,25 +1,48 @@
 import React from 'react';
-import { Card, Table, Grid } from 'semantic-ui-react';
+import { Card, Grid, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Profile table. See pages/ListProfile.jsx. */
 class ProfileItem extends React.Component {
   render() {
     return (
-      <Grid>
-        <Grid.Row>
-          <Card>
-            <Table.Cell>{this.props.profile.displayName}</Table.Cell>
-          </Card>
+      <Grid container centered style={{ marginTop: '3em' }}>
+        <Grid.Row centered divided>
+          <Grid.Column width={2}>
+            <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+              size={'small'} bordered circular/>
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <p>{this.props.profile.displayName}</p>
+            <p>{this.props.profile.description}</p>
+            <Link to={`/editProfile/${this.props.profile._id}`}>Edit</Link>
+          </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
-          <Card>
-            <Table.Cell>{this.props.profile.displayName}</Table.Cell>
-          </Card>
-        </Grid.Row>
-      </Grid>
 
+        <Grid.Row stretched centered>
+          <Grid.Column stretched width={10}>
+            <Card centered fluid>
+              <Card.Content textAlign={'center'}>
+                <Card.Header>Favorite Anime</Card.Header>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+
+          <Grid.Column stretched width={5}>
+            <Card centered fluid>
+              <Card.Content textAlign={'center'}>
+                <Card.Header>Friends List</Card.Header>
+                <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                  size={'small'} bordered centered/>
+                <Card.Description>{this.props.profile.friends}</Card.Description>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+
+        </Grid.Row>
+
+      </Grid>
     );
   }
 }
@@ -28,6 +51,8 @@ class ProfileItem extends React.Component {
 ProfileItem.propTypes = {
   profile: PropTypes.shape({
     displayName: PropTypes.string,
+    description: PropTypes.string,
+    friends: PropTypes.array,
     _id: PropTypes.string,
   }).isRequired,
 };
