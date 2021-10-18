@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Image } from 'semantic-ui-react';
+import { Table, Image, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ class AnimeItem extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.anime.title}</Table.Cell>
+        <Table.Cell><Header as='h5'>{this.props.anime.title}</Header></Table.Cell>
         <Table.Cell><Image src={this.props.anime.image_url} size='small'/></Table.Cell>
         <Table.Cell>{this.props.anime.synopsis}</Table.Cell>
       </Table.Row>
