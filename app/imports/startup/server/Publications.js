@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
+import { publishComposite } from 'meteor/reywood:publish-composite';
+import { User } from 'meteor/socialize:user-model';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 // User-level publication.
@@ -19,6 +21,19 @@ Meteor.publish(Stuffs.adminPublicationName, function () {
     return Stuffs.collection.find();
   }
   return this.ready();
+});
+
+publishComposite('aniMoofriends', {
+  find() {
+    return User.createEmpty(this.userId).friends();
+  },
+  children: [
+    {
+      find(friend) {
+        return Meteor.users.find({ _id: friend.friendId, status: { $exists: true } }, { fields: User.fieldsToPublish });
+      },
+    },
+  ],
 });
 
 // alanning:roles publication
