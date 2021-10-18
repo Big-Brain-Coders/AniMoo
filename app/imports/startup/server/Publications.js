@@ -24,11 +24,7 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 });
 
 Meteor.publish(Anime.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Anime.collection.find({ });
-  }
-  return this.ready();
+  return Anime.collection.find({ });
 });
 
 // Admin-level publication.
@@ -36,13 +32,6 @@ Meteor.publish(Anime.userPublicationName, function () {
 Meteor.publish(Stuffs.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Stuffs.collection.find();
-  }
-  return this.ready();
-});
-
-Meteor.publish(Anime.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Anime.collection.find();
   }
   return this.ready();
 });
