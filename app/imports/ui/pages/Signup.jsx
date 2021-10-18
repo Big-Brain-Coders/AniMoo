@@ -11,7 +11,8 @@ class Signup extends React.Component {
   /* Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { email: '', password: '', username: '', firstName: '',
+      lastName: '', error: '', redirectToReferer: false };
   }
 
   /* Update the form controls each time the user interacts with them. */
@@ -21,12 +22,13 @@ class Signup extends React.Component {
 
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, firstName, lastName, username } = this.state;
+    Accounts.createUser({ email, username, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
         this.setState({ error: '', redirectToReferer: true });
+
       }
     });
   }
@@ -43,18 +45,49 @@ class Signup extends React.Component {
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Register your account
+              Welcome to AniMoo!
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
+                <Form.Group widths='equal'>
+                  <Form.Input
+                    fluid
+                    label="First Name"
+                    id="signup-form-firstName"
+                    name="firstName"
+                    type="firstName"
+                    placeholder="Please enter your first name."
+                    onChange={this.handleChange}
+                  />
+                  <Form.Input
+                    fluid
+                    label="Last Name"
+                    id="signup-form-lastName"
+                    name="lastName"
+                    type="lastName"
+                    placeholder="Please enter your last name."
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
+
                 <Form.Input
                   label="Email"
                   id="signup-form-email"
-                  icon="user"
+                  icon="mail"
                   iconPosition="left"
                   name="email"
                   type="email"
                   placeholder="E-mail address"
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  label="Username"
+                  id="signup-form-username"
+                  icon="user"
+                  iconPosition="left"
+                  name="username"
+                  type="username"
+                  placeholder="Username"
                   onChange={this.handleChange}
                 />
                 <Form.Input
