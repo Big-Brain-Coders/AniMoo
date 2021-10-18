@@ -29,7 +29,7 @@ class Signup extends React.Component {
         this.setState({ error: err.reason });
       } else {
         this.setState({ error: '', redirectToReferer: true });
-        Users.insert({
+        Users.collection.insert({
           email: email,
           firstName: firstName,
           lastName: lastName,
