@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 /**
  * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
@@ -13,7 +13,7 @@ export default class Signin extends React.Component {
   // Initialize component state with properties for login and redirection.
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { usernameOrEmail: '', password: '', error: '', redirectToReferer: false };
   }
 
   // Update the form controls each time the user interacts with them.
@@ -23,8 +23,8 @@ export default class Signin extends React.Component {
 
   // Handle Signin submission using Meteor's account mechanism.
   submit = () => {
-    const { email, password } = this.state;
-    Meteor.loginWithPassword(email, password, (err) => {
+    const { usernameOrEmail, password } = this.state;
+    Meteor.loginWithPassword(usernameOrEmail, password, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -35,47 +35,63 @@ export default class Signin extends React.Component {
 
   // Render the signin form.
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const lightblue = {
+      backgroundColor: 'rgba(130,130,130, .8)',
+      borderRadius: '25px',
+      padding: '31px',
+    };
+    const { from } = this.props.location.state || { from: { pathname: '/anime-list' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
     // Otherwise return the Login form.
     return (
-      <Container id="signin-page">
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment stacked>
-                <Form.Input
-                  label="Email"
-                  id="signin-form-email"
-                  icon="user"
-                  iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Password"
-                  id="signin-form-password"
-                  icon="lock"
-                  iconPosition="left"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Button id="signin-form-submit" content="Submit"/>
-              </Segment>
-            </Form>
-            <Message>
-              <Link to="/signup">Click here to Register</Link>
-            </Message>
+      <div className="login-background">
+        <Container id="signin-page" centered>
+          <Grid textAlign="center" verticalAlign="middle" centered columns={2} >
+            <div className="login">
+              <Form onSubmit={this.submit}>
+                <Segment style={lightblue}>
+                  <Header inverted as='h2' textAlign='center'>Welcome to AniMoo</Header>
+                  <Grid>
+                    <Grid.Column width={5}>
+                      <Image src="/images/anisquad.png" size='large' circular centered/>
+                    </Grid.Column>
+                    <Grid.Column width={10} textAlign='left'>
+                      <Form.Input
+                        label="Email/Username"
+                        id="login-form-email"
+                        icon="user"
+                        iconPosition="left"
+                        name="usernameOrEmail"
+                        type="string"
+                        placeholder="E-mail address/Username"
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        label="Password"
+                        id="login-form-password"
+                        icon="lock"
+                        iconPosition="left"
+                        name="password"
+                        placeholder="Password"
+                        type="password"
+                        onChange={this.handleChange}
+                      />
+                      <Grid>
+                        <Grid.Column width={5}>
+                          <Form.Button id="login-form-submit" content="Login" size="medium"/>
+                        </Grid.Column>
+                        <Grid.Column width={11}>
+                          <p className="login-register" style={{ paddingTop: '8px', fontWeight: 'bold' }}>Need an account? Register <Link id='signup' to='/signup'>here </Link></p>
+                        </Grid.Column>
+                      </Grid>
+                    </Grid.Column>
+                  </Grid>
+                </Segment>
+              </Form>
+            </div>
             {this.state.error === '' ? (
               ''
             ) : (
@@ -85,9 +101,9 @@ export default class Signin extends React.Component {
                 content={this.state.error}
               />
             )}
-          </Grid.Column>
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }

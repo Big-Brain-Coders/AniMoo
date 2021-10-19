@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Profiles } from '../../api/Profile/Profile';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Anime } from '../../api/anime/Anime.js';
+import { Users } from '../../api/user/User';
+
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -28,6 +30,20 @@ function addAnime(data) {
     episodes: data.episodes,
     rating: data.score,
   });
+}
+
+/** Initialize the database with a default users. */
+function addUser(data) {
+  console.log(`  Adding: ${data.email}`);
+  Users.collection.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (Users.collection.find().count() === 0) {
+  if (Meteor.settings.defaultUsers) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultUsers.map(data => addUser(data));
+  }
 }
 
 // Initialize the AnimeCollection if empty.

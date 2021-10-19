@@ -1,7 +1,12 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "password": "changeme", "username": "admin", "role": "admin" },
+    { "email": "john@foo.com", "username": "johnfoo", "password": "changeme" }
+  ],
+
+  "defaultUsers": [
+    { "email": "admin@foo.com", "firstName": "Admin", "lastName": "Admin", "likedShows": [], "friends": [] },
+    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "likedShows": [], "friends": [] }
   ],
 
   "defaultData": [
