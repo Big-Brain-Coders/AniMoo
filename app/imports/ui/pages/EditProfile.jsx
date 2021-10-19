@@ -40,8 +40,6 @@ class EditProfile extends React.Component {
               <TextField name='displayName'/>
               <TextField name='bio'/>
               <SubmitField value='Submit'/>
-              <ErrorsField/>
-              <HiddenField name='owner' />
             </Segment>
           </AutoForm>
         </Grid.Column>
