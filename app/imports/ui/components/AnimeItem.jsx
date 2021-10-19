@@ -2,14 +2,15 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Table, Image, Header, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter } from 'react-router-dom';
 import { Users } from '../../api/user/User';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AnimeItem extends React.Component {
   addLike = () => {
-    Users.update({ _id: Users.findOne({})._id },
-      { $push: { likedAnime: this.props.anime._id } });
+    Users.collection.update({ _id: Users.collection.findOne({})._id },
+      { $push: { likedShows: this.props.anime._id } });
     console.log(this.props.anime._id);
   };
 
@@ -47,7 +48,11 @@ AnimeItem.propTypes = {
 };
 
 export default withTracker(() => {
-  const subscription2 = Meteor.subscribe('User');
+  const subscription2 = Meteor.subscribe(Users.userPublicationName);
+  // DELETE LATER. PRINTING TO CONSOLE TO SEE CURRENT USER
+  const current = Users.collection.find({}).fetch();
+  console.log(current);
+  
   return {
     ready: subscription2.ready(),
   };
