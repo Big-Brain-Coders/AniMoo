@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, TextArea } from 'semantic-ui-react';
+import Axios from 'axios';
+import FormData from 'form-data';
 import { Accounts } from 'meteor/accounts-base';
 import swal from 'sweetalert';
 import { Users } from '../../api/user/User';
@@ -13,7 +15,7 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '', username: '', firstName: '',
-      lastName: '', error: '', redirectToReferer: false };
+      lastName: '', image: '', bio: '', error: '', redirectToReferer: false };
   }
 
   /* Update the form controls each time the user interacts with them. */
@@ -23,7 +25,8 @@ class Signup extends React.Component {
 
   /* Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password, firstName, lastName, username } = this.state;
+    const { email, password, firstName, lastName, username, bio } = this.state;
+    const image = this.state.image;
     Accounts.createUser({ email, username, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
@@ -33,10 +36,14 @@ class Signup extends React.Component {
           email: email,
           firstName: firstName,
           lastName: lastName,
+          image: image,
+          bio: bio,
         },
         (error) => {
           if (error) {
             swal('Error', error.message, 'error');
+          } else if (!image) {
+            swal('Error', 'Image has not completed uploading. Please wait a few more seconds and try again.', 'error');
           } else {
             this.setState({ error: '', redirectToReferer: true });
           }
@@ -47,13 +54,24 @@ class Signup extends React.Component {
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const { from } = this.props.location.state || { from: { pathname: '/anime-list' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
+    const uploadImg = (files) => {
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('cloud_name', 'glarita');
+      data.append('upload_preset', 'animoo');
+      Axios.post('https://api.cloudinary.com/v1_1/glarita/image/upload', data).then((r) => {
+        console.log(r.data.url);
+        this.setState({ image: r.data.url });
+      });
+    };
+
     return (
-      <Container id="signup-page">
+      <Container id="signup-page" style={{ paddingTop: '25px' }}>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
@@ -110,6 +128,22 @@ class Signup extends React.Component {
                   name="password"
                   placeholder="Password"
                   type="password"
+                  onChange={this.handleChange}
+                />
+                <p style={{ marginBottom: '-5px', marginTop: '5px', fontSize: '13px' }}><strong>Upload profile picture</strong></p>
+                <Form.Input
+                  style={{ marginTop: '10px' }}
+                  type='file' onChange={(event) => {
+                    uploadImg(event.target.files);
+                  }}
+                />
+                <Form.Input
+                  label="Bio"
+                  id="bio"
+                  control={TextArea}
+                  name="bio"
+                  placeholder="Bio"
+                  type="bio"
                   onChange={this.handleChange}
                 />
                 <Form.Button id="signup-form-submit" content="Submit"/>
