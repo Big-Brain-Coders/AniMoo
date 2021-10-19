@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Profiles } from '../../api/Profile/Profile';
-
+import { Stuffs } from '../../api/stuff/Stuff.js';
+import { Anime } from '../../api/anime/Anime.js';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document.
@@ -15,4 +16,23 @@ if (Profiles.collection.find().count() === 0) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.map(data => addData(data));
   }
+}
+
+// Initialize the database with a default data document.
+function addAnime(data) {
+  console.log(`  Adding: ${data.title}`);
+  Anime.collection.insert({
+    title: data.title,
+    image_url: data.image_url,
+    synopsis: data.synopsis,
+    episodes: data.episodes,
+    rating: data.score,
+  });
+}
+
+// Initialize the AnimeCollection if empty.
+if ((Meteor.settings.loadAssetsFile) && (Anime.collection.find().count() === 0)) {
+  console.log('Loading data anime data');
+  const jsonData = JSON.parse(Assets.getText('anime.json'));
+  jsonData.defaultAnimeData.map(data => addAnime(data));
 }

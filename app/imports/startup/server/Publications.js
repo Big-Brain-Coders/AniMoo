@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Profiles } from '../../api/Profile/Profile';
+import { Stuffs } from '../../api/stuff/Stuff';
+import { Anime } from '../../api/anime/Anime';
 
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
@@ -12,11 +14,26 @@ Meteor.publish(Profiles.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Anime.userPublicationName, function () {
+  if (this.userId) {
+    // const username = Meteor.users.findOne(this.userId).username;
+    return Anime.collection.find({ });
+  }
+  return this.ready();
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Profiles.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Profiles.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Anime.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Anime.collection.find();
   }
   return this.ready();
 });
