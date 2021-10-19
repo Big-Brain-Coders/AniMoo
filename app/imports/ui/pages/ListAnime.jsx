@@ -44,7 +44,7 @@ class ListAnime extends React.Component {
     return (
       <div className="gray-background">
         <Container>
-          <Header as="h2" textAlign="center">Anime List</Header>
+          <Header as="h2" textAlign="center">AniMoo List</Header>
           <Table celled>
             <Table.Header>
               <Table.Row>

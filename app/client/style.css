@@ -10,6 +10,7 @@
 .gray-background {
     background-image: url("/images/graybg.jpg");
     background-size: auto;
+    padding-top: 50px;
 }
 .signup {
     padding-top: 200px;
@@ -27,6 +28,3 @@
     height: 200%;
 }
 
-html {
-    height: 100%;
-}
