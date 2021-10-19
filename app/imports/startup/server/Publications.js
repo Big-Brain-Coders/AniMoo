@@ -6,10 +6,10 @@ import { Users } from '../../api/user/User';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 
-Meteor.publish('User', function publish() {
+Meteor.publish(Users.userPublicationName, function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Users.find({ email: username });
+    const email = Meteor.users.findOne(this.userId).emails[0].address;
+    return Users.collection.find({ email: email });
   }
   return this.ready();
 });
