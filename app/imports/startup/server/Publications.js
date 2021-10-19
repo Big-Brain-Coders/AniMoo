@@ -6,8 +6,6 @@ import { Anime } from '../../api/anime/Anime';
 import { Users } from '../../api/user/User';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
-Meteor.publish(Profiles.userPublicationName, function () {
-
 Meteor.publish(Users.userPublicationName, function publish() {
   if (this.userId) {
     const email = Meteor.users.findOne(this.userId).emails[0].address;
