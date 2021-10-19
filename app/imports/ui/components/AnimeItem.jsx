@@ -1,12 +1,16 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Table, Image, Header, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { Users } from '../../api/user/User';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AnimeItem extends React.Component {
   addLike = () => {
-    console.log('hello');
+    Users.update({ _id: Users.findOne({})._id },
+      { $push: { likedAnime: this.props.anime._id } });
+    console.log(this.props.anime._id);
   };
 
   render() {
@@ -42,5 +46,10 @@ AnimeItem.propTypes = {
   }).isRequired,
 };
 
+export default withTracker(() => {
+  const subscription2 = Meteor.subscribe('User');
+  return {
+    ready: subscription2.ready(),
+  };
+})(AnimeItem);
 // Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(AnimeItem);
