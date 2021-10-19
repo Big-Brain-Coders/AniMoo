@@ -37,6 +37,7 @@ class UserCollection {
         defaultValue: '',
         optional: true,
       },
+      displayName: String,
       bio: {
         type: String,
         defaultValue: '',

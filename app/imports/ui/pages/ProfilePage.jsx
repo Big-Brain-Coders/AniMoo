@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Profiles } from '../../api/Profile/Profile';
+import { Users } from '../../api/user/User';
 import ProfileItem from '../components/ProfileItem';
 
 /** Renders a table containing all of the Profile documents. Use <ProfileItem> to render each row. */
@@ -18,7 +18,7 @@ class ProfilePage extends React.Component {
   renderPage() {
     return (
       <Container>
-        {this.props.profiles.map((profile) => <ProfileItem key={profile._id} profile={profile} />)}
+        {this.props.users.map((users) => <ProfileItem key={users._id} users={users} />)}
       </Container>
     );
   }
@@ -26,20 +26,20 @@ class ProfilePage extends React.Component {
 
 // Require an array of Profile documents in the props.
 ProfilePage.propTypes = {
-  profiles: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Profile documents.
-  const subscription = Meteor.subscribe(Profiles.userPublicationName);
+  const subscription = Meteor.subscribe(Users.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the Profile documents
-  const profiles = Profiles.collection.find({}).fetch();
+  const users = Users.collection.find({}).fetch();
   return {
-    profiles,
+    users,
     ready,
   };
 })(ProfilePage);

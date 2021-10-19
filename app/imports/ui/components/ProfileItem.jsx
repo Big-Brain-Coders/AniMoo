@@ -7,16 +7,16 @@ import { Link, withRouter } from 'react-router-dom';
 class ProfileItem extends React.Component {
   render() {
     return (
-      <Grid container centered style={{ marginTop: '3em' }}>
+      <Grid container style={{ marginTop: '3em' }}>
         <Grid.Row centered divided>
           <Grid.Column width={2}>
             <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
               size={'small'} bordered circular/>
           </Grid.Column>
           <Grid.Column width={10}>
-            <p>{this.props.profile.displayName}</p>
-            <p>{this.props.profile.description}</p>
-            <Link to={`/editProfile/${this.props.profile._id}`}>Edit</Link>
+            <p>{this.props.users.displayName}</p>
+            <p>{this.props.users.bio}</p>
+            <Link to={`/editProfile/${this.props.users._id}`}>Edit</Link>
           </Grid.Column>
         </Grid.Row>
 
@@ -35,7 +35,7 @@ class ProfileItem extends React.Component {
                 <Card.Header>Friends List</Card.Header>
                 <Image src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
                   size={'small'} bordered centered/>
-                <Card.Description>{this.props.profile.friends}</Card.Description>
+                <Card.Description>{this.props.users.friends}</Card.Description>
               </Card.Content>
             </Card>
           </Grid.Column>
@@ -49,9 +49,10 @@ class ProfileItem extends React.Component {
 
 // Require a document to be passed to this component.
 ProfileItem.propTypes = {
-  profile: PropTypes.shape({
+  users: PropTypes.shape({
     displayName: PropTypes.string,
-    description: PropTypes.string,
+    bio: PropTypes.string,
+    image: PropTypes.string,
     friends: PropTypes.array,
     _id: PropTypes.string,
   }).isRequired,
