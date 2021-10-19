@@ -1,11 +1,29 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Table, Image, Header } from 'semantic-ui-react';
+import { Table, Image, Header, Button, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
+// eslint-disable-next-line no-unused-vars
+import { _ } from 'meteor/underscore';
+import { Users } from '../../api/user/User';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AnimeItem extends React.Component {
+  addLike = () => {
+    if (!(Users.collection.findOne({}).likedShows.includes(this.props.anime._id))) {
+      Users.collection.update({ _id: Users.collection.findOne({})._id },
+        { $push: { likedShows: this.props.anime._id } });
+    } else {
+      Users.collection.update({ _id: Users.collection.findOne({})._id },
+        { $pull: { likedShows: this.props.anime._id } });
+    }
+  };
+
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Retrieving Item Data</Loader>;
+  }
+
+  renderPage() {
     return (
       <Table.Row>
         <Table.Cell textAlign='center'><Header as='h5'>{this.props.anime.title}</Header></Table.Cell>
@@ -13,6 +31,13 @@ class AnimeItem extends React.Component {
         <Table.Cell>{this.props.anime.synopsis}</Table.Cell>
         <Table.Cell textAlign='center'>{this.props.anime.episodes}</Table.Cell>
         <Table.Cell textAlign='center'>{this.props.anime.rating}</Table.Cell>
+        <Table.Cell>
+          <Button icon='heart'
+            floated='center'
+            onClick={this.addLike}
+            color={Users.collection.findOne({}).likedShows.includes(this.props.anime._id) ? 'red' : 'gray'}
+          />
+        </Table.Cell>
       </Table.Row>
     );
   }
@@ -20,6 +45,7 @@ class AnimeItem extends React.Component {
 
 // Require a document to be passed to this component.
 AnimeItem.propTypes = {
+  ready: PropTypes.bool.isRequired,
   anime: PropTypes.shape({
     title: PropTypes.string,
     image_url: PropTypes.string,
@@ -30,5 +56,10 @@ AnimeItem.propTypes = {
   }).isRequired,
 };
 
-// Wrap this component in withRouter since we use the <Link> React Router element.
-export default withRouter(AnimeItem);
+export default withTracker(() => {
+  const subscription2 = Meteor.subscribe(Users.userPublicationName);
+
+  return {
+    ready: subscription2.ready(),
+  };
+})(AnimeItem);

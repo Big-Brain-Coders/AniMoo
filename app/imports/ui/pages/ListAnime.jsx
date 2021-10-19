@@ -40,6 +40,7 @@ class ListAnime extends React.Component {
               <Table.HeaderCell>Summary</Table.HeaderCell>
               <Table.HeaderCell>Episodes</Table.HeaderCell>
               <Table.HeaderCell>Rating</Table.HeaderCell>
+              <Table.HeaderCell>Add To Favorites</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
