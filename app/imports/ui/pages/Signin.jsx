@@ -36,7 +36,7 @@ export default class Signin extends React.Component {
   // Render the signin form.
   render() {
     const lightblue = {
-      backgroundColor: '#6eb3be',
+      backgroundColor: 'rgba(130,130,130, .8)',
       borderRadius: '25px',
       padding: '31px',
     };
@@ -55,10 +55,10 @@ export default class Signin extends React.Component {
                 <Segment style={lightblue}>
                   <Header inverted as='h2' textAlign='center'>Welcome to AniMoo</Header>
                   <Grid>
-                    <Grid.Column width={10}>
-                      <Image src="/images/anisquad.png" size='medium' circular centered/>
+                    <Grid.Column width={5}>
+                      <Image src="/images/anisquad.png" size='large' circular centered/>
                     </Grid.Column>
-                    <Grid.Column width={20}>
+                    <Grid.Column width={10} textAlign='left'>
                       <Form.Input
                         label="Email"
                         id="login-form-email"
@@ -84,16 +84,13 @@ export default class Signin extends React.Component {
                           <Form.Button id="login-form-submit" content="Login" size="medium"/>
                         </Grid.Column>
                         <Grid.Column width={11}>
-                          <p className="login-register" style={{ paddingTop: '8px' }}>Need an account? Register <Link id='signup' to='/signup'>here </Link></p>
+                          <p className="login-register" style={{ paddingTop: '8px', fontWeight: 'bold' }}>Need an account? Register <Link id='signup' to='/signup'>here </Link></p>
                         </Grid.Column>
                       </Grid>
                     </Grid.Column>
                   </Grid>
                 </Segment>
               </Form>
-              <Message>
-                <Link to="/signup">Click here to Register</Link>
-              </Message>
             </div>
             {this.state.error === '' ? (
               ''
