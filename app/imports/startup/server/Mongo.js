@@ -1,24 +1,9 @@
 import { Meteor } from 'meteor/meteor';
-import { Profiles } from '../../api/Profile/Profile';
 import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Anime } from '../../api/anime/Anime.js';
 import { Users } from '../../api/user/User';
 
 /* eslint-disable no-console */
-
-// Initialize the database with a default data document.
-function addData(data) {
-  console.log(`  Adding: ${data.displayName} (${data.owner})`);
-  Profiles.collection.insert(data);
-}
-
-// Initialize the ProfilesCollection if empty.
-if (Profiles.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
-  }
-}
 
 // Initialize the database with a default data document.
 function addAnime(data) {
