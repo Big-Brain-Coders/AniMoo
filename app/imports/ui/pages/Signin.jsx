@@ -13,7 +13,7 @@ export default class Signin extends React.Component {
   // Initialize component state with properties for login and redirection.
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', error: '', redirectToReferer: false };
+    this.state = { username: '', password: '', error: '', redirectToReferer: false };
   }
 
   // Update the form controls each time the user interacts with them.
@@ -23,8 +23,8 @@ export default class Signin extends React.Component {
 
   // Handle Signin submission using Meteor's account mechanism.
   submit = () => {
-    const { email, password } = this.state;
-    Meteor.loginWithPassword(email, password, (err) => {
+    const { username, password } = this.state;
+    Meteor.loginWithPassword(username, password, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
