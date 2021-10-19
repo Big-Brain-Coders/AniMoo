@@ -23,8 +23,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Switch>
-            <Route exact path="/" component={Landing}/>
-            <Route path="/signin" component={Signin}/>
+            <Route exact path="/" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
