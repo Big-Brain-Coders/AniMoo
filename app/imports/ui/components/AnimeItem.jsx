@@ -3,15 +3,20 @@ import React from 'react';
 import { Table, Image, Header, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { withRouter } from 'react-router-dom';
+import { _ } from 'meteor/underscore';
 import { Users } from '../../api/user/User';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AnimeItem extends React.Component {
   addLike = () => {
-    Users.collection.update({ _id: Users.collection.findOne({})._id },
-      { $push: { likedShows: this.props.anime._id } });
-    console.log(this.props.anime._id);
+    //console.log(!(Users.collection.findOne({}).likedShows.includes(this.props.anime._id)));
+    if (!(Users.collection.findOne({}).likedShows.includes(this.props.anime._id))) {
+      Users.collection.update({ _id: Users.collection.findOne({})._id },
+        { $push: { likedShows: this.props.anime._id } });
+    } else {
+      Users.collection.update({ _id: Users.collection.findOne({})._id },
+        { $pull: { likedShows: this.props.anime._id } });
+    }
   };
 
   render() {
@@ -26,8 +31,8 @@ class AnimeItem extends React.Component {
           <Button icon='heart'
             floated='right'
             onClick={this.addLike}
-            // label={{ basic: true, color: 'red', pointing: 'left', content: this.props.items.numberOfLike }}
-            // color={User.findOne({}).likedItems.includes(this.props.items._id) ? 'red' : null}/>
+            // WHY DOES THIS LINE NOT WORK
+            // color={Users.collection.findOne({}).likedShows.includes(this.props.anime._id) ? 'red' : 'gray'}
           />
         </Table.Cell>
       </Table.Row>
@@ -52,7 +57,7 @@ export default withTracker(() => {
   // DELETE LATER. PRINTING TO CONSOLE TO SEE CURRENT USER
   const current = Users.collection.find({}).fetch();
   console.log(current);
-  
+
   return {
     ready: subscription2.ready(),
   };
