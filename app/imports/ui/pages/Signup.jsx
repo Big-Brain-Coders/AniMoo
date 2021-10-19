@@ -47,89 +47,100 @@ class Signup extends React.Component {
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
   render() {
+    const gray = {
+      backgroundColor: 'rgba(130,130,130, .8)',
+      borderRadius: '25px',
+      padding: '31px',
+    };
+    const nopadding = {
+      backgroundColor: 'rgba(130,130,130, .9)',
+      borderRadius: '25px',
+      fontWeight: 'bold',
+    };
     const { from } = this.props.location.state || { from: { pathname: '/add' } };
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
     }
     return (
-      <Container id="signup-page">
-        <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Welcome to AniMoo!
-            </Header>
-            <Form onSubmit={this.submit}>
-              <Segment stacked>
-                <Form.Group widths='equal'>
-                  <Form.Input
-                    fluid
-                    label="First Name"
-                    id="signup-form-firstName"
-                    name="firstName"
-                    type="firstName"
-                    placeholder="Please enter your first name."
-                    onChange={this.handleChange}
-                  />
-                  <Form.Input
-                    fluid
-                    label="Last Name"
-                    id="signup-form-lastName"
-                    name="lastName"
-                    type="lastName"
-                    placeholder="Please enter your last name."
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
+      <div className="login-background">
+        <Container id="signup-page">
+          <Grid textAlign="center" verticalAlign="middle">
+            <div className="signup">
+              <Grid.Column width={10}>
+                <Form onSubmit={this.submit}>
+                  <Segment stacked style={gray}>
+                    <Form.Group widths='equal'>
+                      <Form.Input
+                        fluid
+                        label="First Name"
+                        id="signup-form-firstName"
+                        name="firstName"
+                        type="firstName"
+                        placeholder="Please enter your first name."
+                        onChange={this.handleChange}
+                      />
+                      <Form.Input
+                        fluid
+                        label="Last Name"
+                        id="signup-form-lastName"
+                        name="lastName"
+                        type="lastName"
+                        placeholder="Please enter your last name."
+                        onChange={this.handleChange}
+                      />
+                    </Form.Group>
 
-                <Form.Input
-                  label="Email"
-                  id="signup-form-email"
-                  icon="mail"
-                  iconPosition="left"
-                  name="email"
-                  type="email"
-                  placeholder="E-mail address"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Username"
-                  id="signup-form-username"
-                  icon="user"
-                  iconPosition="left"
-                  name="username"
-                  type="username"
-                  placeholder="Username"
-                  onChange={this.handleChange}
-                />
-                <Form.Input
-                  label="Password"
-                  id="signup-form-password"
-                  icon="lock"
-                  iconPosition="left"
-                  name="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.handleChange}
-                />
-                <Form.Button id="signup-form-submit" content="Submit"/>
-              </Segment>
-            </Form>
-            <Message>
-              Already have an account? Login <Link to="/signin">here</Link>
-            </Message>
-            {this.state.error === '' ? (
-              ''
-            ) : (
-              <Message
-                error
-                header="Registration was not successful"
-                content={this.state.error}
-              />
-            )}
-          </Grid.Column>
-        </Grid>
-      </Container>
+                    <Form.Input
+                      label="Email"
+                      id="signup-form-email"
+                      icon="mail"
+                      iconPosition="left"
+                      name="email"
+                      type="email"
+                      placeholder="E-mail address"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input
+                      label="Username"
+                      id="signup-form-username"
+                      icon="user"
+                      iconPosition="left"
+                      name="username"
+                      type="username"
+                      placeholder="Username"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input
+                      label="Password"
+                      id="signup-form-password"
+                      icon="lock"
+                      iconPosition="left"
+                      name="password"
+                      placeholder="Password"
+                      type="password"
+                      onChange={this.handleChange}
+                    />
+                    <Form.Button id="signup-form-submit" content="Submit"/>
+                  </Segment>
+                </Form>
+                <Message style={nopadding}>
+              Already have an account? Login <Link to="/">here</Link>
+                </Message>
+                {this.state.error === '' ? (
+                  ''
+                ) : (
+                  <Message
+                    error
+                    header="Registration was not successful"
+                    content={this.state.error}
+                  />
+                )}
+              </Grid.Column>
+            </div>
+          </Grid>
+        </Container>
+      </div>
     );
   }
 }

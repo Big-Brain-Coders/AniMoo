@@ -42,32 +42,34 @@ class ListAnime extends React.Component {
     const shows = Anime.collection.find({}).fetch();
 
     return (
-      <Container>
-        <Header as="h2" textAlign="center">Anime List</Header>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Title</Table.HeaderCell>
-              <Table.HeaderCell>Image</Table.HeaderCell>
-              <Table.HeaderCell>Summary</Table.HeaderCell>
-              <Table.HeaderCell>Episodes</Table.HeaderCell>
-              <Table.HeaderCell>Rating</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {this.props.anime.slice((this.state.activePage - 1) * 25, this.state.activePage * 25).map((show) => <AnimeItem key={show._id} anime={show} />)}
-          </Table.Body>
-        </Table>
-        <Pagination
-          activePage={this.activePage}
-          totalPages={Math.ceil(shows.length / 25)}
-          firstItem={{ content: <Icon name='angle double left'/>, icon: true }}
-          lastItem={{ content: <Icon name='angle double right'/>, icon: true }}
-          prevItem={{ content: <Icon name='angle left'/>, icon: true }}
-          nextItem={{ content: <Icon name='angle right'/>, icon: true }}
-          onPageChange={this.handlePageChange}
-        />
-      </Container>
+      <div className="gray-background">
+        <Container>
+          <Header as="h2" textAlign="center">Anime List</Header>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Title</Table.HeaderCell>
+                <Table.HeaderCell>Image</Table.HeaderCell>
+                <Table.HeaderCell>Summary</Table.HeaderCell>
+                <Table.HeaderCell>Episodes</Table.HeaderCell>
+                <Table.HeaderCell>Rating</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.props.anime.slice((this.state.activePage - 1) * 25, this.state.activePage * 25).map((show) => <AnimeItem key={show._id} anime={show} />)}
+            </Table.Body>
+          </Table>
+          <Pagination
+            activePage={this.activePage}
+            totalPages={Math.ceil(shows.length / 25)}
+            firstItem={{ content: <Icon name='angle double left'/>, icon: true }}
+            lastItem={{ content: <Icon name='angle double right'/>, icon: true }}
+            prevItem={{ content: <Icon name='angle left'/>, icon: true }}
+            nextItem={{ content: <Icon name='angle right'/>, icon: true }}
+            onPageChange={this.handlePageChange}
+          />
+        </Container>
+      </div>
     );
   }
 }
