@@ -6,18 +6,6 @@ import PropTypes from 'prop-types';
 import { Anime } from '../../api/anime/Anime';
 import AnimeItem from '../components/AnimeItem';
 
-/**
-const [shows, setShows] = useState(JsonData);
-const [pageNumber, setPageNumber] = useState(0);
-const perPage = 10;
-const pagesRead = pageNumber * perPage;
-const animes = Anime.collection.find({}).fetch();
-
-const onClick = () => {
-
-};
- * */
-
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListAnime extends React.Component {
   constructor(props) {
@@ -53,6 +41,7 @@ class ListAnime extends React.Component {
                 <Table.HeaderCell>Summary</Table.HeaderCell>
                 <Table.HeaderCell>Episodes</Table.HeaderCell>
                 <Table.HeaderCell>Rating</Table.HeaderCell>
+                <Table.HeaderCell>Add To Favorites</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
