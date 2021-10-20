@@ -7,9 +7,9 @@ import CardCarousel from '../components/CardCarousel';
 class Landing extends React.Component {
   render() {
     const textbox = {
-      backgroundColor: 'rgba(130,130,130, .7)',
+      backgroundColor: 'rgb(255,255,255,.7)',
       borderRadius: '25px',
-      padding: '10px',
+      padding: '15px',
     };
     return (
       <div className="gray-background" id='landing-page' style={{ padding: '70px' }} stacked>
@@ -20,21 +20,23 @@ class Landing extends React.Component {
             </Grid.Column>
           </Grid>
         </div>
-        <Grid.Column>
-          <h1>Welcome to this template</h1>
-          <p>Now get to work and modify this app!</p>
+        <Grid.Column style={textbox}>
+          <h1>Check out AniMoo's most popular shows!</h1>
+          <p>These shows were picked from AniMoo's team as their all time favorites</p>
         </Grid.Column>
-        <div>
+        <div style={{ padding: '10px' }}>
           <div className="ui centered three column grid">
             <div className="centered column">
               <Card fluid={true} centered={true}>
-                <Image src='/images/lupin.jpeg' />
+                <Image src='/images/demonslayer.jpeg' />
                 <Card.Content>
-                  <Card.Header>My Neighbor Totoro</Card.Header>
+                  <Card.Header>Demon Slayer: Kimetsu no Yaiba</Card.Header>
                   <Card.Description>
-                      Two sisters move to the country with their father in order to be
-                      closer to their hospitalized mother, and discover the surrounding
-                      trees are inhabited by magical spirits.
+                    A family is attacked by demons and only two members survive -
+                    Tanjiro and his sister Nezuko, who is turning into a demon slowly.
+                    Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.
+                    It has recently released a movie and has a second season will air during winter season. Nezuko is very cute.
+                    < br/>
                   </Card.Description>
                 </Card.Content>
               </Card>
@@ -43,13 +45,12 @@ class Landing extends React.Component {
             <div className="column">
 
               <Card fluid={true} centered={true}>
-                <Image src='/images/test2.jpeg' />
+                <Image src='/images/codegeass.jpeg' />
                 <Card.Content>
-                  <Card.Header>My Neighbor Totoro</Card.Header>
+                  <Card.Header>Code Geass: Hangyaku no Lelouch</Card.Header>
                   <Card.Description>
-                    Two sisters move to the country with their father in order to be
-                    closer to their hospitalized mother, and discover the surrounding
-                    trees are inhabited by magical spirits.
+                    In the year 2010, the Holy Empire of Britannia is establishing itself as a dominant military nation, starting with the conquest of Japan. Renamed to Area 11 after its swift defeat, Japan has seen significant resistance against these tyrants in an attempt to regain independence.
+                   < br/> < br/>
                   </Card.Description>
                 </Card.Content>
               </Card>
@@ -58,13 +59,12 @@ class Landing extends React.Component {
             <div className="column" centered>
 
               <Card fluid={true} centered={true}>
-                <Image src='/images/test2.jpeg' />
+                <Image src='/images/onepiece.jpeg' />
                 <Card.Content>
-                  <Card.Header>My Neighbor Totoro</Card.Header>
+                  <Card.Header>One Piece</Card.Header>
                   <Card.Description>
-                    Two sisters move to the country with their father in order to be
-                    closer to their hospitalized mother, and discover the surrounding
-                    trees are inhabited by magical spirits.
+                    Gol D. Roger was known as the "Pirate King," the strongest and most infamous being to have sailed the Grand Line. The capture and execution of Roger by the World Government brought a change throughout the world. His last words before his death revealed the
+                    existence of the greatest treasure in the world, One Piece.
                   </Card.Description>
                 </Card.Content>
               </Card>
