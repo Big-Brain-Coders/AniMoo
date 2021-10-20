@@ -8,8 +8,7 @@ import { Users } from '../../api/user/User';
 
 Meteor.publish(Users.userPublicationName, function () {
   if (this.userId) {
-    const email = Meteor.users.findOne(this.userId).emails[0].address;
-    return Users.collection.find({ email: email });
+    return Users.collection.find({ });
   }
   return this.ready();
 });
