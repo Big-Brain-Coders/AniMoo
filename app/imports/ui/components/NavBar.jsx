@@ -10,7 +10,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <Menu attached="top" borderless inverted>
-        <Menu.Item as={NavLink} activeClassName="" exact to="/">
+        <Menu.Item as={NavLink} activeClassName="" exact to="/landing-page">
           <Header inverted as='h1'>AniMoo</Header>
         </Menu.Item>
         {this.props.currentUser ? (
