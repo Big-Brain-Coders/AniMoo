@@ -27,14 +27,15 @@ class MyProfilePage extends React.Component {
     });
     console.log(profile);
 
-    // const likes = {this.props.user.}
+    const likes = this.props.user.likedShows;
     return (
       <div id='user-page'>
         <Container text style={{ marginTop: '3em' }}>
           <Header as='h1' textAlign='center'>My Profile</Header>
           {profile.map((prof) => <MyProfile key={prof._id} mProfile={prof}/>)}
           <Item.Group>
-            <LikesSection user={this.props.user}/>
+            {likes.map((item) => <LikesSection user={this.props.user}/> )}
+            {/* <LikesSection user={this.props.user}/> */}
           </Item.Group>
         </Container>
         
@@ -46,6 +47,7 @@ class MyProfilePage extends React.Component {
 // Require the presence of a my profile document in the arrays object.
 MyProfilePage.propTypes = {
   myProfile: PropTypes.array.isRequired,
+  user: PropTypes.object,
   animes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
