@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-// import NavBar from '../components/NavBar';
+import NavBar from '../components/NavBar';
 import ListStuff from '../pages/ListStuff';
 import ListAnime from '../pages/ListAnime';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
@@ -14,6 +14,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import Landing from '../pages/Landing';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -25,11 +26,15 @@ class App extends React.Component {
             <Route exact path="/" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <Route path="/anime-list" component={ListAnime}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <div>
+              <NavBar/>
+              <Route path="/landing-page" component={Landing}/>
+              <Route path="/anime-list" component={ListAnime}/>
+              <ProtectedRoute path="/list" component={ListStuff}/>
+              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            </div>
             <Route component={NotFound}/>
           </Switch>
         </div>
