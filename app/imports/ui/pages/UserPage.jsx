@@ -35,7 +35,7 @@ class UserPage extends React.Component {
               <Segment>
                 <Grid.Column>
                   <Container>{this.props.userProfile.bio}</Container>
-                  <CommentSection messages={this.props.userProfile} />
+                  <CommentSection myID={this.props.userProfile._id} />
                 </Grid.Column>
               </Segment>
             </Grid.Column>
