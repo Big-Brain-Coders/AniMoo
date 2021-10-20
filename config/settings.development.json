@@ -1,16 +1,64 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "username": "admin", "role": "admin" },
-    { "email": "john@foo.com", "username": "johnfoo", "password": "changeme" }
-  ],
-
-  "defaultUsers": [
-    { "email": "admin@foo.com", "firstName": "Admin", "lastName": "Admin", "likedShows": [], "friends": ["Weiner"],
-      "displayName": "Not Weiner", "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n              industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and\n              scrambled it to make a type specimen book.", "image":  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "username": "admin",
+      "role": "admin"
     },
-    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "likedShows": [], "friends": ["Not Weiner"],
-      "displayName": "Weiner", "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the\n              industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and\n              scrambled it to make a type specimen book.", "image":  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
+    {
+      "email": "john@foo.com",
+      "username": "johnfoo",
+      "password": "changeme"
+    }
   ],
-  
+  "defaultUsers": [
+    {
+      "email": "admin@foo.com",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "likedShows": [],
+      "friends": [],
+      "image": "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
+      "bio": "I love watching anime",
+      "owner": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "firstName": "John",
+      "lastName": "Foo",
+      "likedShows": [],
+      "friends": [],
+      "image": "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
+      "bio": "I love watching anime",
+      "owner": "johnfoo"
+    }
+  ],
+  "defaultData": [
+    {
+      "name": "Basket",
+      "quantity": 3,
+      "owner": "john@foo.com",
+      "condition": "excellent"
+    },
+    {
+      "name": "Bicycle",
+      "quantity": 2,
+      "owner": "john@foo.com",
+      "condition": "poor"
+    },
+    {
+      "name": "Banana",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "good"
+    },
+    {
+      "name": "Boogie Board",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "excellent"
+    }
+  ],
   "loadAssetsFile": true
 }

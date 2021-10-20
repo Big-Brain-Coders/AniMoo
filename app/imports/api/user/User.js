@@ -43,6 +43,12 @@ class UserCollection {
         defaultValue: '',
         optional: true,
       },
+      messages: {
+        type: Array,
+        defaultValue: [],
+      },
+      'messages.$': Object,
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

@@ -35,12 +35,12 @@ export default class Signin extends React.Component {
 
   // Render the signin form.
   render() {
-    const lightblue = {
+    const gray = {
       backgroundColor: 'rgba(130,130,130, .8)',
       borderRadius: '25px',
       padding: '31px',
     };
-    const { from } = this.props.location.state || { from: { pathname: '/anime-list' } };
+    const { from } = this.props.location.state || { from: { pathname: '/landing-page' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
@@ -52,7 +52,7 @@ export default class Signin extends React.Component {
           <Grid textAlign="center" verticalAlign="middle" centered columns={2} >
             <div className="login">
               <Form onSubmit={this.submit}>
-                <Segment style={lightblue}>
+                <Segment style={gray}>
                   <Header inverted as='h2' textAlign='center'>Welcome to AniMoo</Header>
                   <Grid>
                     <Grid.Column width={5}>
