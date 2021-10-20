@@ -32,6 +32,16 @@ class UserCollection {
         defaultValue: [],
       },
       'friends.$': String,
+      image: {
+        type: String,
+        defaultValue: '',
+        optional: true,
+      },
+      bio: {
+        type: String,
+        defaultValue: '',
+        optional: true,
+      },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
