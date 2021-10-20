@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Users } from '../../api/user/User';
+import CommentSection from '../components/CommentSection';
 
 /** Renders the Page for editing a single document. */
 class UserPage extends React.Component {
@@ -34,6 +35,7 @@ class UserPage extends React.Component {
               <Segment>
                 <Grid.Column>
                   <Container>{this.props.userProfile.bio}</Container>
+                  <CommentSection messages={this.props.userProfile} />
                 </Grid.Column>
               </Segment>
             </Grid.Column>
