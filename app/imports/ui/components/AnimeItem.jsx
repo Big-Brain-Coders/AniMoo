@@ -17,6 +17,8 @@ class AnimeItem extends React.Component {
       Users.collection.update({ _id: Users.collection.findOne({})._id },
         { $pull: { likedShows: this.props.anime._id } });
     }
+  console.log(Users.collection.findOne({}));
+
   };
 
   render() {
@@ -60,7 +62,10 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe(Users.userPublicationName);
   // DON'T DELETE CURRENT IDK WHY BUT IT'S SUPER NECESSARY
   // eslint-disable-next-line no-unused-vars
-  const current = Users.collection.find({}).fetch();
+  const username = Meteor.user().username;
+
+  const current = Users.collection.find({owner: username}).fetch();
+  console.log(current);
   return {
     ready: subscription2.ready(),
   };

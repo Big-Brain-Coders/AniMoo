@@ -27,7 +27,9 @@ class MyProfilePage extends React.Component {
     });
     console.log(profile);
 
-    const likes = _.filter(this.props.myProfile.likedShows, (anime) => _.contains(this.props.myProfile.likedShows, anime._id));
+    const likes = this.props.myProfile.likedShows;
+    const findInCollection = _.filter(likes, (anime) => _.contains(this.props.animes, anime._id));
+    console.log(findInCollection);
     // const likes = this.props.myProfile.likedShows;
     console.log("THIS IS THE LIKED SHOWS", likes);
     return (
@@ -36,7 +38,7 @@ class MyProfilePage extends React.Component {
           <Header as='h1' textAlign='center'>My Profile</Header>
           {profile.map((prof) => <MyProfile key={prof._id} mProfile={prof}/>)}
           <Item.Group>
-            {likes.map((anime) => <LikesSection anime={anime}/> )}
+            {/* {likes.map(findInCollection, (anime) => <LikesSection anime={anime}/> )} */}
             {/* <LikesSection user={this.props.user}/> */}
           </Item.Group>
         </Container>

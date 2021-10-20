@@ -35,7 +35,7 @@ LikesSection.propTypes = {
 };
 
 export default withTracker(() => {
-    const subscription = Meteor.subscribe(Users.userPublicationName);
+    const subscription = Meteor.subscribe(Anime.userPublicationName);
     return {
       ready: subscription.ready(),
     };
