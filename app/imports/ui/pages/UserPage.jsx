@@ -5,7 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Users } from '../../api/user/User';
 
-/** Renders the Page for editing a single document. */
+/** Renders the Page for a user profile */
 class UserPage extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -16,7 +16,6 @@ class UserPage extends React.Component {
     return (
       <div id='user-page'>
         <Container text style={{ marginTop: '3em' }}>
-          <Header as='h1' textAlign='center'>User Profile</Header>
           <Divider/>
           <Grid columns={2} divided>
             <Grid.Column>
@@ -45,7 +44,7 @@ class UserPage extends React.Component {
   }
 }
 
-// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
+// Require the presence of a user document in the props object. Uniforms adds 'model' to the props, which we use.
 UserPage.propTypes = {
   userProfile: PropTypes.object,
   ready: PropTypes.bool.isRequired,
@@ -55,7 +54,7 @@ UserPage.propTypes = {
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
-  // Get access to Stuff documents.
+  // Get access to User documents.
   const subscription = Meteor.subscribe(Users.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();

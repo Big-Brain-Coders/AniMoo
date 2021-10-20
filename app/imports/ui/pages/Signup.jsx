@@ -38,6 +38,7 @@ class Signup extends React.Component {
           lastName: lastName,
           image: image,
           bio: bio,
+          owner: username,
         },
         (error) => {
           if (error) {
