@@ -34,9 +34,10 @@ class UserCollection {
       'friends.$': String,
       image: {
         type: String,
-        defaultValue: '',
+        defaultValue: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
         optional: true,
       },
+      displayName: String,
       bio: {
         type: String,
         defaultValue: '',
@@ -54,6 +55,7 @@ class UserCollection {
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.publicPublicationName = `${this.name}.publication.public`;
   }
 }
 

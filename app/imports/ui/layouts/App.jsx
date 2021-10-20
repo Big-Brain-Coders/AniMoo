@@ -17,6 +17,8 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import ProfilePage from '../pages/ProfilePage';
+import EditProfile from '../pages/EditProfile';
 import Landing from '../pages/Landing';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
