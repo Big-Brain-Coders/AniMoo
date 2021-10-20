@@ -17,7 +17,7 @@ class MyProfile extends React.Component {
                 <Header as='h4' style={{ marginTop: '5px', color: 'grey' }}
                 >{this.props.mProfile.firstName} {this.props.mProfile.lastName}</Header>
                 <Grid.Column>
-                  <Image size='medium rounded' src={this.props.mProfile.image} wrapped ui={true} centered/>
+                  <Image size='medium' rounded src={this.props.mProfile.image} wrapped ui={true} centered/>
                 </Grid.Column>
               </Segment>
             </Grid.Column>

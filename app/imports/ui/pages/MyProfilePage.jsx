@@ -1,11 +1,13 @@
 import React from 'react';
-import { Loader, Header, Container } from 'semantic-ui-react';
+import { Loader, Header, Container, Item } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import { Users } from '../../api/user/User';
+import { Anime } from '../../api/anime/Anime';
 import MyProfile from '../components/MyProfile';
+import LikesSection from '../components/LikesSection';
 
 /** Renders the user my profile page */
 class MyProfilePage extends React.Component {
@@ -25,12 +27,17 @@ class MyProfilePage extends React.Component {
     });
     console.log(profile);
 
+    // const likes = {this.props.user.}
     return (
       <div id='user-page'>
         <Container text style={{ marginTop: '3em' }}>
           <Header as='h1' textAlign='center'>My Profile</Header>
           {profile.map((prof) => <MyProfile key={prof._id} mProfile={prof}/>)}
+          <Item.Group>
+            <LikesSection user={this.props.user}/>
+          </Item.Group>
         </Container>
+        
       </div>
     );
   }
@@ -39,6 +46,7 @@ class MyProfilePage extends React.Component {
 // Require the presence of a my profile document in the arrays object.
 MyProfilePage.propTypes = {
   myProfile: PropTypes.array.isRequired,
+  animes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -46,12 +54,18 @@ MyProfilePage.propTypes = {
 export default withTracker(() => {
   // Get access to Users documents.
   const subscription = Meteor.subscribe(Users.userPublicationName);
+  const subscription2 = Meteor.subscribe(Anime.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
+  const ready2 = subscription2.ready();
   // Get the document
   const myProfile = Users.collection.find({}).fetch();
+  const animes = Anime.collection.find({}).fetch();
+  console.log(animes);
   return {
     myProfile,
+    animes,
     ready,
+    ready2,
   };
 })(MyProfilePage);
