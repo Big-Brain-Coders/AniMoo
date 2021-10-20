@@ -16,7 +16,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-// import Landing from '../pages/Landing';
+import Landing from '../pages/Landing';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -24,20 +24,21 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <NavBar/>
-        </div>
-        <div>
           <Switch>
             <Route exact path="/" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
-            <ProtectedRoute path="/user-list" component={ListUser}/>
-            <Route path="/user-page/:_id" component={UserPage}/>
-            <Route path="/anime-list" component={ListAnime}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
-            <ProtectedRoute path="/add" component={AddStuff}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <div>
+              <NavBar/>
+              <Route path="/landing-page" component={Landing}/>
+              <Route path="/anime-list" component={ListAnime}/>
+              <ProtectedRoute path="/user-page/:_id" component={UserPage}/>
+              <ProtectedRoute path="/user-list" component={ListUser}/>
+              <ProtectedRoute path="/list" component={ListStuff}/>
+              <ProtectedRoute path="/add" component={AddStuff}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            </div>
             <Route component={NotFound}/>
           </Switch>
         </div>
