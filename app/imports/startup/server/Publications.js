@@ -13,6 +13,13 @@ Meteor.publish(Users.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Users.publicPublicationName, function publish() {
+  if (this.userId) {
+    return Users.collection.find();
+  }
+  return this.ready();
+});
+
 // Meteor.publish(Stuffs.userPublicationName, function () {
 //
 //   if (this.userId) {
