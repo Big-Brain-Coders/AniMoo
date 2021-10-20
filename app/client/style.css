@@ -11,7 +11,6 @@
     background-image: url("/images/background.jpeg");
     background-size: auto;
     padding-top: 50px;
-    height: 102vh;
 }
 .signup {
     padding-top: 200px;
@@ -26,6 +25,13 @@
 .login-background {
     background-image: url("/images/aniMoobg.png");
     background-size: cover;
+    height: 102vh;
+}
+
+.profile-background {
+    background-image: url("/images/background.jpeg");
+    background-size: auto;
+    padding-top: 50px;
     height: 102vh;
 }
 
