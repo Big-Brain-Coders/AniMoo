@@ -8,7 +8,7 @@ import { Users } from '../../api/user/User';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CommentSection extends React.Component {
   addMessage = ({ username, message }) => {
-    Users.collection.update({ _id: this.props.userID },
+    Users.collection.update({ _id: this.props.myID },
       { $push: { messages: { user: username, message: message } } });
     console.log();
   };
