@@ -1,18 +1,18 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the User List table. */
 class User extends React.Component {
   render() {
     return (
       <Table.Row>
-        <Table.Cell>{this.props.user.firstName} {this.props.user.lastName}</Table.Cell>
-        <Table.Cell>{this.props.user.image}</Table.Cell>
+        <Table.Cell><Image size='small' circular src={this.props.user.image} centered={true}/></Table.Cell>
+        <Table.Cell textAlign='centered'>{this.props.user.firstName} {this.props.user.lastName}</Table.Cell>
         <Table.Cell>{this.props.user.bio}</Table.Cell>
         <Table.Cell>
-          <Link to={`/user-page/${this.props.user._id}`}>Edit</Link>
+          <Link to={`/user-page/${this.props.user._id}`}>Go To Profile</Link>
         </Table.Cell>
       </Table.Row>
     );
