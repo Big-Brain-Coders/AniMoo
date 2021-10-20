@@ -11,6 +11,7 @@ import UserPage from '../pages/UserPage';
 import ListAnime from '../pages/ListAnime';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
+import MyProfilePage from '../pages/MyProfilePage';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -33,6 +34,7 @@ class App extends React.Component {
               <Route path="/landing-page" component={Landing}/>
               <Route path="/anime-list" component={ListAnime}/>
               <ProtectedRoute path="/user-page/:_id" component={UserPage}/>
+              <ProtectedRoute path="/my-profile" component={MyProfilePage}/>
               <ProtectedRoute path="/user-list" component={ListUser}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>

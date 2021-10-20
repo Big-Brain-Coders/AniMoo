@@ -22,8 +22,8 @@ class ListUser extends React.Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Bio</Table.HeaderCell>
               <Table.HeaderCell>Edit</Table.HeaderCell>
             </Table.Row>
