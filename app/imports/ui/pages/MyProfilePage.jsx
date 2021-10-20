@@ -26,7 +26,7 @@ class MyProfilePage extends React.Component {
     console.log(profile);
 
     return (
-      <div id='user-page'>
+      <div id='user-page' className="gray-background">
         <Container text style={{ marginTop: '3em' }}>
           <Header as='h1' textAlign='center'>My Profile</Header>
           {profile.map((prof) => <MyProfile key={prof._id} mProfile={prof}/>)}
