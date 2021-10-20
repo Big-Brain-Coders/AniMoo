@@ -35,7 +35,7 @@ export default class Signin extends React.Component {
 
   // Render the signin form.
   render() {
-    const lightblue = {
+    const gray = {
       backgroundColor: 'rgba(130,130,130, .8)',
       borderRadius: '25px',
       padding: '31px',
@@ -52,7 +52,7 @@ export default class Signin extends React.Component {
           <Grid textAlign="center" verticalAlign="middle" centered columns={2} >
             <div className="login">
               <Form onSubmit={this.submit}>
-                <Segment style={lightblue}>
+                <Segment style={gray}>
                   <Header inverted as='h2' textAlign='center'>Welcome to AniMoo</Header>
                   <Grid>
                     <Grid.Column width={5}>

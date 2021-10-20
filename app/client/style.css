@@ -7,12 +7,24 @@
     margin: 0;
 }
 
+.gray-background {
+    background-image: url("/images/graybg.jpg");
+    background-size: auto;
+    padding-top: 50px;
+}
+.signup {
+    padding-top: 200px;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 102vh;
+    margin: 0;
+    width: 600px;
+}
+
 .login-background {
     background-image: url("/images/aniMoobg.png");
     background-size: cover;
-    height: 200%;
+    height: 102vh;
 }
 
-html {
-    height: 100%;
-}

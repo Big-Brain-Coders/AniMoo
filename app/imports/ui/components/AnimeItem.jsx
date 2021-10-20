@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Table, Image, Header, Button, Loader } from 'semantic-ui-react';
+import { Table, Image, Header, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 // eslint-disable-next-line no-unused-vars
@@ -20,7 +20,7 @@ class AnimeItem extends React.Component {
   };
 
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Retrieving Item Data</Loader>;
+    return (this.props.ready) ? this.renderPage() : null;
   }
 
   renderPage() {
@@ -33,9 +33,9 @@ class AnimeItem extends React.Component {
         <Table.Cell textAlign='center'>{this.props.anime.rating}</Table.Cell>
         <Table.Cell>
           <Button icon='heart'
-            floated='center'
+            floated='left'
             onClick={this.addLike}
-            color={Users.collection.findOne({}).likedShows.includes(this.props.anime._id) ? 'red' : 'gray'}
+            color={Users.collection.findOne({}).likedShows.includes(this.props.anime._id) ? 'red' : 'grey'}
           />
         </Table.Cell>
       </Table.Row>
@@ -58,7 +58,9 @@ AnimeItem.propTypes = {
 
 export default withTracker(() => {
   const subscription2 = Meteor.subscribe(Users.userPublicationName);
-
+  // DON'T DELETE CURRENT IDK WHY BUT IT'S SUPER NECESSARY
+  // eslint-disable-next-line no-unused-vars
+  const current = Users.collection.find({}).fetch();
   return {
     ready: subscription2.ready(),
   };
