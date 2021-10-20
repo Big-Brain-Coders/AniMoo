@@ -27,14 +27,16 @@ class MyProfilePage extends React.Component {
     });
     console.log(profile);
 
-    const likes = this.props.user.likedShows;
+    const likes = _.filter(this.props.myProfile.likedShows, (anime) => _.contains(this.props.myProfile.likedShows, anime._id));
+    // const likes = this.props.myProfile.likedShows;
+    console.log("THIS IS THE LIKED SHOWS", likes);
     return (
       <div id='user-page'>
         <Container text style={{ marginTop: '3em' }}>
           <Header as='h1' textAlign='center'>My Profile</Header>
           {profile.map((prof) => <MyProfile key={prof._id} mProfile={prof}/>)}
           <Item.Group>
-            {likes.map((item) => <LikesSection user={this.props.user}/> )}
+            {likes.map((anime) => <LikesSection anime={anime}/> )}
             {/* <LikesSection user={this.props.user}/> */}
           </Item.Group>
         </Container>
@@ -47,7 +49,6 @@ class MyProfilePage extends React.Component {
 // Require the presence of a my profile document in the arrays object.
 MyProfilePage.propTypes = {
   myProfile: PropTypes.array.isRequired,
-  user: PropTypes.object,
   animes: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -63,7 +64,6 @@ export default withTracker(() => {
   // Get the document
   const myProfile = Users.collection.find({}).fetch();
   const animes = Anime.collection.find({}).fetch();
-  console.log(animes);
   return {
     myProfile,
     animes,

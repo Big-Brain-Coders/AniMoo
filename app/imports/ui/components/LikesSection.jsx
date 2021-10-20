@@ -10,7 +10,12 @@ import { Users } from '../../api/user/User';
 
 /** Renders users liked shows. */
 class LikesSection extends React.Component {
+
   render() {
+        return (this.props.ready) ? this.renderPage() : <Loader active>Retrieving Anime Data</Loader>;
+  }
+
+  renderPage() {
     return (
         <Item>
             <Item.Image size='tiny' src={this.props.anime.image_url}/>
@@ -26,8 +31,15 @@ class LikesSection extends React.Component {
 /** Require a document to be passed to this component. */
 LikesSection.propTypes = {
   anime: PropTypes.object.isRequired,
-//   ready: PropTypes.bool.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
+export default withTracker(() => {
+    const subscription = Meteor.subscribe(Users.userPublicationName);
+    return {
+      ready: subscription.ready(),
+    };
+  })(LikesSection);
+
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(LikesSection);
+// export default withRouter(LikesSection);
