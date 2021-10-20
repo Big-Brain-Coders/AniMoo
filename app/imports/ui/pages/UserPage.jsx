@@ -24,7 +24,7 @@ class UserPage extends React.Component {
                 <Header as='h1'
                   textAlign='center'>{this.props.userProfile.firstName} {this.props.userProfile.lastName}</Header>
                 <Grid.Column>
-                  <Image size='medium rounded' src={this.props.userProfile.image} wrapped ui={true} centered/>
+                  <Image size='medium' rounded src={this.props.userProfile.image} wrapped ui={true} centered/>
                 </Grid.Column>
                 <Divider/>
               </Segment>
