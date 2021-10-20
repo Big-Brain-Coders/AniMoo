@@ -1,20 +1,64 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "username": "admin", "role": "admin" },
-    { "email": "john@foo.com", "username": "johnfoo", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "username": "admin",
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "username": "johnfoo",
+      "password": "changeme"
+    }
   ],
-
   "defaultUsers": [
-    { "email": "admin@foo.com", "firstName": "Admin", "lastName": "Admin", "likedShows": [], "friends": [] },
-    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "likedShows": [], "friends": [] }
+    {
+      "email": "admin@foo.com",
+      "firstName": "Admin",
+      "lastName": "Admin",
+      "likedShows": [],
+      "friends": [],
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fdefault-avatar-profile-icon-vector-social-media-user-image-image182145777&psig=AOvVaw0N9N_fQMeKbpAF49sVGOEG&ust=1634789448933000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCPjemrWP2PMCFQAAAAAdAAAAABAI",
+      "bio": "I love watching anime",
+      "owner": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "firstName": "John",
+      "lastName": "Foo",
+      "likedShows": [],
+      "friends": [],
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fdefault-avatar-profile-icon-vector-social-media-user-image-image182145777&psig=AOvVaw0N9N_fQMeKbpAF49sVGOEG&ust=1634789448933000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCPjemrWP2PMCFQAAAAAdAAAAABAI",
+      "bio": "I love watching anime",
+      "owner": "johnfoo"
+    }
   ],
-
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "name": "Basket",
+      "quantity": 3,
+      "owner": "john@foo.com",
+      "condition": "excellent"
+    },
+    {
+      "name": "Bicycle",
+      "quantity": 2,
+      "owner": "john@foo.com",
+      "condition": "poor"
+    },
+    {
+      "name": "Banana",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "good"
+    },
+    {
+      "name": "Boogie Board",
+      "quantity": 2,
+      "owner": "admin@foo.com",
+      "condition": "excellent"
+    }
   ],
-
   "loadAssetsFile": true
 }

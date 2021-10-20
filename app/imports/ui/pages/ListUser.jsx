@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Users } from '../../api/user/User';
 import User from '../components/User';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the User documents. Use <User> to render each row. */
 class ListUser extends React.Component {
 
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
@@ -22,8 +22,8 @@ class ListUser extends React.Component {
         <Table celled>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Image</Table.HeaderCell>
+              <Table.HeaderCell>Name</Table.HeaderCell>
               <Table.HeaderCell>Bio</Table.HeaderCell>
               <Table.HeaderCell>Edit</Table.HeaderCell>
             </Table.Row>
@@ -37,7 +37,7 @@ class ListUser extends React.Component {
   }
 }
 
-// Require an array of Stuff documents in the props.
+// Require an array of user documents in the props.
 ListUser.propTypes = {
   users: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -45,11 +45,11 @@ ListUser.propTypes = {
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to User documents.
   const subscription = Meteor.subscribe(Users.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
-  // Get the Stuff documents
+  // Get the User documents
   const users = Users.collection.find({}).fetch();
   return {
     users,

@@ -7,7 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Users } from '../../api/user/User';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the Anime table. */
 class AnimeItem extends React.Component {
   addLike = () => {
     if (!(Users.collection.findOne({}).likedShows.includes(this.props.anime._id))) {
