@@ -15,19 +15,26 @@ class UserPage extends React.Component {
   renderPage() {
     return (
       <div id='user-page'>
-        <Container text style={{ marginTop: '7em' }}>
-          <Header as='h1' textAlign='center' inverted>User Profile</Header>
+        <Container text style={{ marginTop: '3em' }}>
+          <Header as='h1' textAlign='center'>User Profile</Header>
           <Divider/>
           <Grid columns={2} divided>
             <Grid.Column>
               <Segment>
                 <Header as='h1'
-                  textAlign='center'>{this.props.userProfile.username} {this.props.userProfile.firstName} {this.props.userProfile.lastName}</Header>
+                  textAlign='center'>{this.props.userProfile.firstName} {this.props.userProfile.lastName}</Header>
                 <Grid.Column>
                   <Image size='medium rounded' src={this.props.userProfile.image} wrapped ui={true} centered/>
                 </Grid.Column>
-                <Container>{this.props.userProfile.bio}</Container>
                 <Divider/>
+              </Segment>
+            </Grid.Column>
+            <Grid.Column>
+              <Header as='h3'>Bio</Header>
+              <Segment>
+                <Grid.Column>
+                  <Container>{this.props.userProfile.bio}</Container>
+                </Grid.Column>
               </Segment>
             </Grid.Column>
           </Grid>

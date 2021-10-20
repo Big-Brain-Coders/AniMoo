@@ -18,7 +18,7 @@ class ListUser extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Users</Header>
+        <Header as="h2" textAlign="center">Current Users</Header>
         <Table celled>
           <Table.Header>
             <Table.Row>
