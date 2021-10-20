@@ -7,7 +7,7 @@ import { _ } from 'meteor/underscore';
 import { Users } from '../../api/user/User';
 import MyProfile from '../components/MyProfile';
 
-/** Renders the Page for editing a single document. */
+/** Renders the user my profile page */
 class MyProfilePage extends React.Component {
   // If the subscription(s) have been received, render the page, otherwise show a loading icon.
   render() {
@@ -36,7 +36,7 @@ class MyProfilePage extends React.Component {
   }
 }
 
-// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
+// Require the presence of a my profile document in the arrays object.
 MyProfilePage.propTypes = {
   myProfile: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -44,8 +44,7 @@ MyProfilePage.propTypes = {
 
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  // Get access to Stuff documents.
+  // Get access to Users documents.
   const subscription = Meteor.subscribe(Users.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();

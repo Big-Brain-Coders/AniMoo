@@ -3,7 +3,7 @@ import { Image, Container, Header, Divider, Grid, Segment } from 'semantic-ui-re
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a profile page. */
 class MyProfile extends React.Component {
   render() {
     return (
