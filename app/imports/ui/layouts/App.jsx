@@ -6,6 +6,8 @@ import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import ListStuff from '../pages/ListStuff';
+import ListUser from '../pages/ListUser';
+import UserPage from '../pages/UserPage';
 import ListAnime from '../pages/ListAnime';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
@@ -30,6 +32,8 @@ class App extends React.Component {
               <NavBar/>
               <Route path="/landing-page" component={Landing}/>
               <Route path="/anime-list" component={ListAnime}/>
+              <ProtectedRoute path="/user-page/:_id" component={UserPage}/>
+              <ProtectedRoute path="/user-list" component={ListUser}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>
               <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
@@ -55,7 +59,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
       const isLogged = Meteor.userId() !== null;
       return isLogged ?
         (<Component {...props} />) :
-        (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+        (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
         );
     }}
   />
@@ -74,7 +78,7 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
       const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
       return (isLogged && isAdmin) ?
         (<Component {...props} />) :
-        (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+        (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>
         );
     }}
   />
