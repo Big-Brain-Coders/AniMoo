@@ -21,8 +21,8 @@ class Landing extends React.Component {
           </Grid>
         </div>
         <Grid.Column style={textbox}>
-          <h1>Check out AniMoo's most popular shows!</h1>
-          <p>These shows were picked from AniMoo's team as their all time favorites</p>
+          <h1>Check out AniMoo&apos;s most popular shows!</h1>
+          <p>These shows were picked from AniMoo&apos;s team as their all time favorites</p>
         </Grid.Column>
         <div style={{ padding: '10px' }}>
           <div className="ui centered three column grid">
@@ -66,7 +66,7 @@ class Landing extends React.Component {
                 <Card.Content>
                   <Card.Header>One Piece</Card.Header>
                   <Card.Description>
-                    Gol D. Roger was known as the "Pirate King," the strongest and most infamous
+                    Gol D. Roger was known as the &quotPirate King,&quot the strongest and most infamous
                     being to have sailed the Grand Line. The capture and execution of Roger by
                     the World Government brought a change throughout the world. His last words
                     before his death revealed the
