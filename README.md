@@ -24,9 +24,35 @@ With our application AniMoo, we hope to create those connections and bonds betwe
 
 
 ## Installation
+If you wish to install the _**AniMoo**_ application locally, you can follow the directions below. 
+
+First, [install Meteor](https://www.meteor.com/install).
+
+Second, download a copy of [AniMoo](https://github.com/Big-Brain-Coders/AniMoo).
+
+Third, open up your terminal/command prompt and cd into the app directory of the Minerva Medical copy you had just downloaded
+and install the necessary libraries by invoking meteor npm install:
+
+```
+$ meteor npm install
+$ npm install axios
+$ npm install --save form-data
+```
+
+After meteor is installed, you can run the application by typing in the command:
+
+```
+$ meteor npm run start
+```
 
 ## Deployment 
+Our application was deployed with [_**Galaxy**_](https://galaxy-guide.meteor.com/deploy-guide.html). You can view a deployed version of our application [**here**]().
 
 ## The Team
+- Kyra Ikeda
+- Eric Lam
+- Glen Larita
+- Chase Lee
+- Irene Ma
 
 
