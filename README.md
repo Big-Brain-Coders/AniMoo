@@ -40,13 +40,16 @@ $ meteor npm run start
 ```
 
 ## Deployment 
-Our application was deployed with [_**Galaxy**_](https://galaxy-guide.meteor.com/deploy-guide.html). You can view a deployed version of our application [**here**]().
+Our application was deployed with [_**Galaxy**_](https://galaxy-guide.meteor.com/deploy-guide.html). You can view a deployed version of our application [**here**](https://animoooo.meteorapp.com/).
 
 ## The Team
-- Kyra Ikeda
-- Eric Lam
-- Glen Larita
-- Chase Lee
-- Irene Ma
+_**AniMoo**_ was an application developed for the Meteor Hackathon 2021
 
+If you would like more information on our team members, please see the links below. 
+
+[Kyra Ikeda](https://kyraikeda.github.io/) - kyrai@hawaii.edu\
+[Eric Lam](https://airyclam.github.io/) - lameric@hawaii.edu\
+[Glen Larita](https://glarita.github.io/) - glarita@hawaii.edu\
+[Chase Lee](https://chase-lee-ui.github.io/) - leechase@hawaii.edu\
+[Irene Ma](https://irene-ma.github.io/) - mairene@hawaii.edu
 
