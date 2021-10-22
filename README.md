@@ -1,6 +1,3 @@
-
-For details, please see http://ics-software-engineering.github.io/meteor-application-template-react/
-
 ## Big Brain Coders
 Team members:
 - Eric Lam (airyclam)
@@ -8,6 +5,15 @@ Team members:
 - Glen Larita (glarita)
 - Irene Ma (Irene-ma)
 - Kyra Ikeda (kyraikeda)
+
+Due to the Covid-19 pandemic, many people were required to quarantine and social distance, resulting in limited social interaction and a decline in mental health among communities. This has lead to problems such as: <br>
+- Worse mental health outcomes
+- Increased substance abuse
+- Higher tendencies for suicidal thoughts
+<br>
+College students are also having difficulty socializing through online classes due to the limitations of Zoom and in-person hangouts. 
+<br>
+Because of this, watching anime, netflix, and movies has become an incredibly common pastime. 
 
 ## Description
 AniMoo is a social media platform centered around discussing TV Shows and Movies. The title is wordplay on Anime (Japanese animation) and Movies (hence AniMoo).
