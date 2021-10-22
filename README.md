@@ -15,10 +15,10 @@ College students are also having difficulty socializing through online classes d
 Because of this, watching anime, netflix, and movies has become an incredibly common pastime. 
 
 ## Description
-AniMoo is a social media platform centered around discussing TV Shows and Movies. The title is wordplay on Anime (Japanese animation) and Movies (hence AniMoo).
+_**AniMoo**_ is a social media platform centered around discussing TV shows and movies. The title is wordplay on anime (Japanese animation) and movies (hence AniMoo).
 With AniMoo, users will be able to add friends to see what kind of shows they like to watch, discuss plot twists from the latest episode of the hot new series, and track who’s the
 biggest Netflix addict among the friend group. We realized that being able to discuss your favorite anime and shows amongst is a great way to establish connections and build friendships. Sharing the same excitement and passion for a show with someone can create a unique bond that can last a lifetime. 
-With our application _**Animoo**_, we hope to create those connections and bonds between students that would otherwise be lacking due to the limitations of online education. 
+With our application AniMoo, we hope to create those connections and bonds between students that would otherwise be lacking due to the limitations of online education. 
 
 ## Welcome to Animoo!
 
