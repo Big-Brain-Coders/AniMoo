@@ -1,10 +1,4 @@
 ## Big Brain Coders
-Team members:
-- Eric Lam (airyclam)
-- Chase Lee (Chase-Lee-ui)
-- Glen Larita (glarita)
-- Irene Ma (Irene-ma)
-- Kyra Ikeda (kyraikeda)
 
 Due to the Covid-19 pandemic, many people were required to quarantine and social distance, resulting in limited social interaction and a decline in mental health among communities. This has lead to problems such as: <br>
 - Worse mental health outcomes
