@@ -10,7 +10,6 @@ Due to the Covid-19 pandemic, many people were required to quarantine and social
 - Worse mental health outcomes
 - Increased substance abuse
 - Higher tendencies for suicidal thoughts
-<br>
 College students are also having difficulty socializing through online classes due to the limitations of Zoom and in-person hangouts. 
 <br>
 Because of this, watching anime, netflix, and movies has become an incredibly common pastime. 
@@ -18,7 +17,8 @@ Because of this, watching anime, netflix, and movies has become an incredibly co
 ## Description
 AniMoo is a social media platform centered around discussing TV Shows and Movies. The title is wordplay on Anime (Japanese animation) and Movies (hence AniMoo).
 With AniMoo, users will be able to add friends to see what kind of shows they like to watch, discuss plot twists from the latest episode of the hot new series, and track who’s the
-biggest Netflix addict among the friend group. With this application, we hope to create connections between students that would otherwise be lacking because of online education. 
+biggest Netflix addict among the friend group. We realized that being able to discuss your favorite anime and shows amongst is a great way to establish connections and build friendships. Sharing the same excitement and passion for a show with someone can create a unique bond that can last a lifetime. 
+With this application, we hope to create those connections and bonds between students that would otherwise be lacking because of online education. 
 
 ## Welcome to Animoo!
 
