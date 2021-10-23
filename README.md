@@ -27,6 +27,7 @@ We also were able to display a "My Profile" page, which allows the user to view 
 
 ## Welcome to Animoo!
 
+![](/doc/Login.png)
 
 ## Installation
 If you wish to install the _**AniMoo**_ application locally, you can follow the directions below. 
