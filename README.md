@@ -14,6 +14,12 @@ With AniMoo, users will be able to add friends to see what kind of shows they li
 biggest Netflix addict among the friend group. We realized that being able to discuss your favorite anime and shows amongst is a great way to establish connections and build friendships. Sharing the same excitement and passion for a show with someone can create a unique bond that can last a lifetime. 
 With our application AniMoo, we hope to create those connections and bonds between students that would otherwise be lacking due to the limitations of online education. 
 
+## Benefits
+The goal of _**AniMoo**_ was to create an application that allowed anime lovers and show bingers to gather and interact with one another. We wanted to create a virtual environment where users can build communities and bonds amongst each other to discuss their favorite shows.
+
+### Students
+Although our application is made for all users, the target audience in mind at the time AniMoo was envisioned were students. Being students ourselves, we can relate to the frustration that many college students experience due to the lack of social interaction since switching to online education. Due to the combination of a busy schedule from taking college courses and staying home due to the Covid-19 pandemic, watching tv shows and anime has become the primary pastime for many individuals. With AniMoo, users will be able to have non-academic social interaction about these shows, providing a breath of fresh air for many students. Our goal was to provide users with the ability to "like" shows for viewing later, have chat environments to discuss with other users about a particular show, and to friend other users, with each user profile displaying the shows they liked.  
+
 ## Welcome to Animoo!
 
 
