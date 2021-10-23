@@ -35,7 +35,7 @@ First, [install Meteor](https://www.meteor.com/install).
 
 Second, download a copy of [AniMoo](https://github.com/Big-Brain-Coders/AniMoo).
 
-Third, open up your terminal/command prompt and cd into the app directory of the Minerva Medical copy you had just downloaded
+Third, open up your terminal/command prompt and cd into the app directory of the AniMoo copy you had just downloaded
 and install the necessary libraries by invoking meteor npm install:
 
 ```
@@ -58,9 +58,9 @@ _**AniMoo**_ was an application developed for the Meteor Hackathon 2021
 
 If you would like more information on our team members, please see the links below. 
 
-[Kyra Ikeda](https://kyraikeda.github.io/) - kyrai@hawaii.edu\
-[Eric Lam](https://airyclam.github.io/) - lameric@hawaii.edu\
-[Glen Larita](https://glarita.github.io/) - glarita@hawaii.edu\
-[Chase Lee](https://chase-lee-ui.github.io/) - leechase@hawaii.edu\
-[Irene Ma](https://irene-ma.github.io/) - mairene@hawaii.edu
+- [Kyra Ikeda](https://kyraikeda.github.io/) - kyrai@hawaii.edu\
+- [Eric Lam](https://airyclam.github.io/) - lameric@hawaii.edu\
+- [Glen Larita](https://glarita.github.io/) - glarita@hawaii.edu\
+- [Chase Lee](https://chase-lee-ui.github.io/) - leechase@hawaii.edu\
+- [Irene Ma](https://irene-ma.github.io/) - mairene@hawaii.edu
 
