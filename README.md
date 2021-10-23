@@ -27,7 +27,20 @@ We also were able to display a "My Profile" page, which allows the user to view 
 
 ## Welcome to Animoo!
 
+When first arriveing to the web application, the user is prompted with a login page. If the user is a new user and does not have an account, they can go to the register page.
 ![](/doc/Login.png)
+
+On the register page, the user will fill out their first name, last name, email address, username, password, profile picture, and bio. 
+![](/doc/Register.png)
+
+Once logged in, the user will be displayed a landing page where they can choose to navigate throughout the website using the navbar. The landing page will also display AniMoo's most popular shows at the time. 
+![](/doc/landing.png)
+
+The user will also be able to view a list of anime through the "Anime List" menu item in the navbar. This page displays close to 1000 different anime with the use of pagination. The user will also be able to like the anime of their choice by clicking on the heart icon button. 
+![](/doc/anime-list.png)
+
+The user will also be able to view their profile, which will display the information that they put in at the time of registration.
+![](/doc/my-profile.png)
 
 ## Installation
 If you wish to install the _**AniMoo**_ application locally, you can follow the directions below. 
