@@ -42,6 +42,8 @@ The user will also be able to view a list of anime through the "Anime List" menu
 The user will also be able to view their profile, which will display the information that they put in at the time of registration.
 ![](/doc/my-profile.png)
 
+Once the user signs out, they are routed back to the login page. 
+
 ## Installation
 If you wish to install the _**AniMoo**_ application locally, you can follow the directions below. 
 
