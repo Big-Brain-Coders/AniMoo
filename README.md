@@ -1,4 +1,4 @@
-## Big Brain Coders
+## The Problem at Hand
 
 Due to the Covid-19 pandemic, many people were required to quarantine and social distance, resulting in limited social interaction and a decline in mental health among communities. This has lead to problems such as: <br>
 - Worse mental health outcomes
@@ -18,10 +18,10 @@ With our application AniMoo, we hope to create those connections and bonds betwe
 The goal of _**AniMoo**_ was to create an application that allowed anime lovers and show bingers to gather and interact with one another. We wanted to create a virtual environment where users can build communities and bonds amongst each other to discuss their favorite shows.
 
 ### Students
-Although our application is made for all users, the target audience in mind at the time AniMoo was envisioned were students. Being students ourselves, we can relate to the frustration that many college students experience due to the lack of social interaction since switching to online education. Due to the combination of a busy schedule from taking college courses and staying home due to the Covid-19 pandemic, watching tv shows and anime has become the primary pastime for many individuals. With AniMoo, users will be able to have non-academic social interaction about these shows, providing a breath of fresh air for many students. Our goal was to provide users with the ability to "like" shows for viewing later, have chat environments to discuss with other users about a particular show, and to friend other users, with each user profile displaying the shows they liked.
+Although our application is designed for a variety of audience, the target audience in mind at the time AniMoo was envisioned were students. Being students ourselves, we can relate to the frustration that many college students experience due to the lack of social interaction since switching to online education. Due to the combination of a busy schedule from taking college courses and staying home due to the Covid-19 pandemic, watching tv shows and anime has become the primary pastime for many individuals. With AniMoo, users will be able to have non-academic social interaction about these shows, providing a breath of fresh air for many students. Our goal was to provide users with the ability to "like" shows for viewing later, have chat environments to discuss with other users about a particular show, and to friend other users, with each user profile displaying the shows they liked.
 
 ## Outcome
-Unfortunately due to the time constraints given for the 2021 Meteor Hackathon, we were unable to complete all the tasks envisioned for AniMoo. However, we were able to provide an user aesthetic that we felt would give users the same feeling they get when watching their favorite shows. We also were able to grab data on a list of Anime shows, which we implemented into our "Anime List" page. This page allows users to "like" a show. This is done by dislaying a button to the user. If the button is red, then the show within the same row is considered a liked show. 
+Unfortunately due to the time constraints given for the 2021 Meteor Hackathon, we were unable to complete all the tasks envisioned for AniMoo. However, we were able to provide a user interface aesthetic that we felt would give users the same feeling of excitement they get when watching their favorite shows. We also were able to grab data on a list of Anime shows, which we implemented into our "Anime List" page. This page allows users to "like" a show. This is done by dislaying a button to the user. If the button is red, then the show within the same row is considered a liked show. If it is grey, then the show has not been liked.
 <br>
 We also were able to display a "My Profile" page, which allows the user to view their username, full name, profile picture, and bio.
 
@@ -54,9 +54,9 @@ $ meteor npm run start
 Our application was deployed with [_**Galaxy**_](https://galaxy-guide.meteor.com/deploy-guide.html). You can view a deployed version of our application [**here**](https://animoooo.meteorapp.com/).
 
 ## The Team
-_**AniMoo**_ was an application developed for the Meteor Hackathon 2021
+_**AniMoo**_ was an application developed for the Meteor Hackathon 2021 competition.
 
-If you would like more information on our team members, please see the links below. 
+If you would like to view more information on our team members, please see the provided links and emails below.
 
 - [Kyra Ikeda](https://kyraikeda.github.io/) - kyrai@hawaii.edu
 - [Eric Lam](https://airyclam.github.io/) - lameric@hawaii.edu
